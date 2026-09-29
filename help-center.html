@@ -1,0 +1,1211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Help Center | CreateYourSong</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #ff4d94;
+    --pink-dark: #e0357a;
+    --pink-deep: #c92666;
+    --pink-light: #ffe4f0;
+    --pink-soft: #fff0f7;
+    --white-soft: #fffafc;
+    --text-dark: #4a1a2e;
+    --text-muted: #526477;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--white-soft);
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: white;
+    padding: 14px 5%;
+    box-shadow: 0 2px 12px rgba(255,77,148,.08);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pink);
+    color: white;
+    border-radius: 14px;
+    font-size: 25px;
+}
+
+.brand-name {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--pink-dark);
+}
+
+.brand small {
+    display: block;
+    font-size: 10px;
+    color: var(--text-dark);
+}
+
+.navbar-nav {
+    gap: 8px;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    font-size: 13px;
+    padding: 10px 13px !important;
+    border-radius: 25px;
+}
+
+.nav-link i {
+    margin-right: 5px;
+    color: var(--pink-dark);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--pink-dark);
+    color: white;
+}
+
+.nav-link:hover i,
+.nav-link.active i {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(110deg, #ffeaf4, #fff5fa, #fce7f3);
+    padding: 55px 7%;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    color: var(--text-dark);
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--pink-dark);
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.script-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    color: var(--pink-dark);
+    margin-top: 12px;
+}
+
+.hero-art {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 190px;
+}
+
+.hero-circle {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffacd0, #ed3785);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 75px;
+    box-shadow: 0 15px 40px rgba(224,53,122,.2);
+    position: relative;
+}
+
+.hero-circle::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 2px solid rgba(255,255,255,.6);
+    border-radius: 50%;
+}
+
+/* PAGE CONTAINER */
+
+.page-container {
+    max-width: 1120px;
+    padding: 0 24px;
+    margin: 40px auto;
+}
+
+/* SEARCH */
+
+.search-box {
+    max-width: 800px;
+    margin: 0 auto 42px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 16px;
+    background: var(--pink-soft);
+    border: 1px solid var(--pink-light);
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 17px;
+    border-radius: 30px;
+    border: 1px solid var(--pink-light);
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.search-box input:focus {
+    border-color: var(--pink);
+}
+
+.btn-pink {
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 23px;
+    color: white;
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: center;
+    transition: .3s;
+}
+
+.btn-pink:hover {
+    color: white;
+    background: var(--pink-deep);
+    transform: translateY(-2px);
+}
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 24px;
+}
+
+.section-heading > i {
+    color: var(--pink);
+    font-size: 29px;
+}
+
+.section-heading h2 {
+    color: #304155;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.section-heading h2 span {
+    color: var(--pink-dark);
+}
+
+.section-heading p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.7;
+}
+
+/* GUIDE CARDS */
+
+.guide-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 23px 20px;
+    background: white;
+    border: 1px solid #f6dce8;
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(224,53,122,.09);
+    border-color: #f3a6c8;
+}
+
+.guide-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    border-radius: 14px;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.guide-card h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 9px;
+    color: #304155;
+}
+
+.guide-card p {
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.8;
+    flex: 1;
+}
+
+.guide-link {
+    color: var(--pink-dark);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.guide-link:hover {
+    color: var(--pink-deep);
+}
+
+/* DETAILED GUIDES */
+
+.guide-section {
+    margin-top: 48px;
+    scroll-margin-top: 100px;
+}
+
+.guide-panel {
+    background: white;
+    border: 1px solid #f5dce8;
+    border-radius: 15px;
+    padding: 24px;
+    margin-bottom: 14px;
+    scroll-margin-top: 100px;
+}
+
+.guide-panel h4 {
+    color: #304155;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.guide-panel h4 i {
+    color: var(--pink-dark);
+    margin-right: 9px;
+}
+
+.guide-panel p,
+.guide-panel li {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.guide-panel ul,
+.guide-panel ol {
+    padding-left: 22px;
+    margin-bottom: 10px;
+}
+
+.guide-panel li {
+    margin-bottom: 5px;
+}
+
+.tip-box {
+    background: var(--pink-soft);
+    border-left: 4px solid var(--pink);
+    border-radius: 8px;
+    padding: 13px 15px;
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 14px;
+}
+
+.tip-box i {
+    color: var(--pink-dark);
+    margin-right: 5px;
+}
+
+/* ACCORDION */
+
+.accordion-item {
+    border: 1px solid #f5dce8 !important;
+    border-radius: 12px !important;
+    margin-bottom: 9px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: #fffafd;
+    color: #304155;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 16px;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--pink-dark);
+    background: var(--pink-soft);
+}
+
+.accordion-body {
+    background: white;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.9;
+    padding: 17px;
+}
+
+.accordion-body a {
+    color: var(--pink-dark);
+}
+
+.no-results {
+    display: none;
+    background: var(--pink-soft);
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    color: var(--text-muted);
+}
+
+/* SUPPORT BOX */
+
+.support-box {
+    padding: 32px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #fff0f7, #fce5f1);
+    text-align: center;
+    margin-top: 48px;
+}
+
+.support-box > i {
+    font-size: 39px;
+    color: var(--pink-dark);
+}
+
+.support-box h3 {
+    color: #304155;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.support-box h3 span {
+    color: var(--pink-dark);
+}
+
+.support-box p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.support-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    background: linear-gradient(100deg, #c92666, #ad1e61);
+    color: white;
+    padding: 25px 5% 15px;
+    margin-top: 40px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.footer-brand > i {
+    font-size: 32px;
+}
+
+.footer-brand strong {
+    display: block;
+    font-size: 17px;
+}
+
+.footer-brand small {
+    font-size: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 11px;
+    text-align: center;
+    margin: 22px 0 0;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 5%;
+    }
+
+    .navbar-nav {
+        padding-top: 12px;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 40px 6%;
+    }
+
+    .hero-art {
+        min-height: 155px;
+        margin-top: 15px;
+    }
+
+    .hero-circle {
+        width: 140px;
+        height: 140px;
+        font-size: 60px;
+    }
+
+    .search-box {
+        flex-wrap: wrap;
+    }
+
+    .search-box input,
+    .search-box button {
+        width: 100%;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
+
+    .guide-panel {
+        padding: 18px;
+    }
+
+    .support-box {
+        padding: 25px 18px;
+    }
+
+    .footer-inner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-brand {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+<div class="container-fluid">
+
+<a href="index.html" class="brand">
+    <div class="brand-icon">
+        <i class="bi bi-music-note-beamed"></i>
+    </div>
+    <div>
+        <div class="brand-name">CreateYourSong</div>
+        <small>Real Stories, Real Songs</small>
+    </div>
+</a>
+
+<button class="navbar-toggler" type="button"
+data-bs-toggle="collapse" data-bs-target="#mainNav"
+aria-label="Toggle navigation">
+    <i class="bi bi-list fs-2"></i>
+</button>
+
+<div class="collapse navbar-collapse" id="mainNav">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+<i class="bi bi-house-fill"></i>Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="create.html">
+<i class="bi bi-music-note"></i>Send Request
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="reviews.html">
+<i class="bi bi-star-fill"></i>Reviews
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="about.html">
+<i class="bi bi-info-circle"></i>About
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="help.html">
+<i class="bi bi-question-circle"></i>Help
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="login.html">
+<i class="bi bi-person-fill"></i>Login
+</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+<div class="container-fluid">
+<div class="row align-items-center">
+
+<div class="col-md-7">
+<span class="hero-badge">
+<i class="bi bi-heart-fill me-1"></i>
+We're Here for You
+</span>
+
+<h1>Help Center <span>& Support</span></h1>
+
+<p>
+Everything you need to know about creating your personalized song.
+Explore our guides for submitting requests, payments, song delivery,
+and more.
+</p>
+
+<div class="script-text">
+Your story deserves its own song
+<i class="bi bi-heart"></i>
+</div>
+</div>
+
+<div class="col-md-5 hero-art">
+<div class="hero-circle">
+<i class="bi bi-headphones"></i>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<main class="page-container">
+
+<!-- SEARCH -->
+
+<div class="search-box">
+<input type="search" id="helpSearch"
+placeholder="Search guides, payments, delivery..."
+aria-label="Search help center">
+
+<button class="btn-pink" onclick="searchHelp()">
+<i class="bi bi-search me-1"></i> Search
+</button>
+</div>
+
+<!-- QUICK HELP CATEGORIES -->
+
+<section id="categories">
+
+<div class="section-heading">
+<i class="bi bi-grid-fill"></i>
+<div>
+<h2>How Can We <span>Help You?</span></h2>
+<p>Choose a topic to find the information you need.</p>
+</div>
+</div>
+
+<div class="row g-3">
+
+<div class="col-md-4 col-sm-6 help-searchable">
+<div class="guide-card">
+<div class="guide-icon"><i class="bi bi-music-note-list"></i></div>
+<h5>Getting Started</h5>
+<p>Learn how to submit your personalized song request step by step.</p>
+<a href="#ordering" class="guide-link">Read the guide <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+
+<div class="col-md-4 col-sm-6 help-searchable">
+<div class="guide-card">
+<div class="guide-icon"><i class="bi bi-credit-card"></i></div>
+<h5>Payments</h5>
+<p>Understand the payment process and what to do if something goes wrong.</p>
+<a href="#payments" class="guide-link">Payment help <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+
+<div class="col-md-4 col-sm-6 help-searchable">
+<div class="guide-card">
+<div class="guide-icon"><i class="bi bi-headphones"></i></div>
+<h5>Song Delivery</h5>
+<p>Learn how to ask about your song's progress and delivery.</p>
+<a href="#delivery" class="guide-link">Delivery guide <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+
+<div class="col-md-4 col-sm-6 help-searchable">
+<div class="guide-card">
+<div class="guide-icon"><i class="bi bi-pencil-square"></i></div>
+<h5>Changes & Corrections</h5>
+<p>Find out how to request a correction to your submitted details.</p>
+<a href="#changes" class="guide-link">Learn more <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+
+<div class="col-md-4 col-sm-6 help-searchable">
+<div class="guide-card">
+<div class="guide-icon"><i class="bi bi-shield-check"></i></div>
+<h5>Privacy & Security</h5>
+<p>Tips for keeping your personal and payment information safe.</p>
+<a href="#privacy" class="guide-link">Safety guide <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+
+<div class="col-md-4 col-sm-6 help-searchable">
+<div class="guide-card">
+<div class="guide-icon"><i class="bi bi-chat-dots"></i></div>
+<h5>Contact Support</h5>
+<p>Find out how to contact us if you need additional assistance.</p>
+<a href="#contact" class="guide-link">Get support <i class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- GUIDE 1 -->
+
+<section class="guide-section" id="ordering">
+
+<div class="section-heading">
+<i class="bi bi-music-note-beamed"></i>
+<div>
+<h2>How to Submit a <span>Song Request</span></h2>
+<p>Follow these steps to tell us about the song you want.</p>
+</div>
+</div>
+
+<div class="guide-panel help-searchable">
+<h4><i class="bi bi-list-ol"></i> Step-by-step instructions</h4>
+
+<ol>
+<li>Open the <a href="create.html" style="color:#e0357a;">Send Request</a> page.</li>
+<li>Enter the required details, such as your name and contact information.</li>
+<li>Provide the recipient's name, occasion, preferred song style, and your story or message as requested by the form.</li>
+<li>Review all details carefully, especially names and spellings.</li>
+<li>Complete any payment step displayed on the page, if applicable.</li>
+<li>Submit your request and check the confirmation message.</li>
+</ol>
+
+<div class="tip-box">
+<i class="bi bi-lightbulb-fill"></i>
+<strong>Tip:</strong> Include meaningful details about the person,
+occasion, memories, and mood you want the song to express.
+Do not include passwords or banking information.
+</div>
+
+<a href="create.html" class="btn-pink mt-3">
+<i class="bi bi-music-note me-1"></i> Create Your Request
+</a>
+</div>
+
+</section>
+
+<!-- GUIDE 2 -->
+
+<section class="guide-section" id="payments">
+
+<div class="section-heading">
+<i class="bi bi-credit-card"></i>
+<div>
+<h2>Payment <span>Help</span></h2>
+<p>What to do when making a payment for your song.</p>
+</div>
+</div>
+
+<div class="guide-panel help-searchable">
+<h4><i class="bi bi-wallet2"></i> How to make a payment</h4>
+
+<ol>
+<li>Read the price and payment instructions shown on your request page.</li>
+<li>Click the payment button provided on the website.</li>
+<li>Complete the payment using the available payment option.</li>
+<li>Return to your website and follow the instructions shown there.</li>
+<li>Keep your payment confirmation or transaction reference for your records.</li>
+</ol>
+
+<div class="tip-box">
+<i class="bi bi-info-circle-fill"></i>
+Only pay using the payment details displayed on your website.
+Never share your UPI PIN, OTP, card PIN, or banking password
+with anyone.
+</div>
+</div>
+
+<div class="guide-panel help-searchable">
+<h4><i class="bi bi-exclamation-circle"></i> Payment completed, but no confirmation?</h4>
+
+<ul>
+<li>Check your UPI app or bank statement to confirm the transaction status.</li>
+<li>Wait for any pending transaction to resolve before attempting another payment.</li>
+<li>Keep the transaction reference, amount, date, and time.</li>
+<li>Contact support with these details if you need help.</li>
+</ul>
+
+<p>
+Avoid making a second payment until you have checked whether the
+first transaction succeeded.
+</p>
+</div>
+
+</section>
+
+<!-- GUIDE 3 -->
+
+<section class="guide-section" id="delivery">
+
+<div class="section-heading">
+<i class="bi bi-headphones"></i>
+<div>
+<h2>Song Creation & <span>Delivery</span></h2>
+<p>Information about updates and receiving your personalized song.</p>
+</div>
+</div>
+
+<div class="guide-panel help-searchable">
+<h4><i class="bi bi-clock-history"></i> When will I receive my song?</h4>
+
+<p>
+The creation time depends on your song requirements and the
+current workload. If a delivery timeframe is provided when you
+submit your request, refer to that information.
+</p>
+
+<h4 class="mt-4"><i class="bi bi-chat-left-text"></i> How can I ask for an update?</h4>
+
+<ol>
+<li>Keep a copy of your submitted request details.</li>
+<li>Contact us through the support details provided on the website.</li>
+<li>Include your name, request date, and any available request reference.</li>
+<li>Ask for an update on the progress of your song.</li>
+</ol>
+
+<div class="tip-box">
+<i class="bi bi-info-circle-fill"></i>
+If you have not received a delivery estimate, contact support
+to ask about the expected timeframe.
+</div>
+</div>
+
+</section>
+
+<!-- GUIDE 4 -->
+
+<section class="guide-section" id="changes">
+
+<div class="section-heading">
+<i class="bi bi-pencil-square"></i>
+<div>
+<h2>Changes & <span>Corrections</span></h2>
+<p>Need to correct a name or change your song details?</p>
+</div>
+</div>
+
+<div class="guide-panel help-searchable">
+<h4><i class="bi bi-pencil"></i> How to request a change</h4>
+
+<ol>
+<li>Contact support as soon as you notice an error.</li>
+<li>Provide your request details so we can identify the submission.</li>
+<li>Clearly explain what needs to be corrected or changed.</li>
+<li>Wait for confirmation about whether the change is possible.</li>
+</ol>
+
+<p>
+Changes may depend on the stage of song creation. Please contact
+us before assuming that an edit or replacement can be provided.
+</p>
+
+<a href="#contact" class="btn-pink mt-2">
+Contact Support
+</a>
+</div>
+
+</section>
+
+<!-- GUIDE 5 -->
+
+<section class="guide-section" id="privacy">
+
+<div class="section-heading">
+<i class="bi bi-shield-lock"></i>
+<div>
+<h2>Privacy & <span>Security</span></h2>
+<p>Keep your information safe while using CreateYourSong.</p>
+</div>
+</div>
+
+<div class="guide-panel help-searchable">
+<h4><i class="bi bi-shield-check"></i> Protect your information</h4>
+
+<ul>
+<li>Provide only the details needed to submit your song request.</li>
+<li>Never send your password, OTP, UPI PIN, or banking password through a request or message.</li>
+<li>Check that payment links and payment details are the ones provided by your website.</li>
+<li>Do not include sensitive personal information in your song story.</li>
+<li>Contact support if you are concerned about information you have submitted.</li>
+</ul>
+
+<div class="tip-box">
+<i class="bi bi-lock-fill"></i>
+Your website should clearly explain how submitted information is
+collected, stored, and used. Add a Privacy Policy page that
+reflects your actual practices.
+</div>
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="guide-section" id="faq">
+
+<div class="section-heading">
+<i class="bi bi-question-circle"></i>
+<div>
+<h2>Common <span>Questions</span></h2>
+<p>Quick answers to common customer concerns.</p>
+</div>
+</div>
+
+<div class="accordion" id="faqAccordion">
+
+<div class="accordion-item help-searchable">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button"
+data-bs-toggle="collapse" data-bs-target="#faq1">
+Do I need an account to submit a song request?
+</button>
+</h2>
+<div id="faq1" class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Follow the instructions on your website. If your request page
+requires login, sign in before submitting your details.
+</div>
+</div>
+</div>
+
+<div class="accordion-item help-searchable">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button"
+data-bs-toggle="collapse" data-bs-target="#faq2">
+What should I do if my request is not submitted?
+</button>
+</h2>
+<div id="faq2" class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Check that all required fields are filled in correctly and that
+your internet connection is working. If the problem continues,
+contact support before submitting the same request again.
+</div>
+</div>
+</div>
+
+<div class="accordion-item help-searchable">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button"
+data-bs-toggle="collapse" data-bs-target="#faq3">
+Can I request a song in my preferred language?
+</button>
+</h2>
+<div id="faq3" class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Mention your preferred language in the request form or the
+special instructions field. Contact support if you need to
+confirm whether your requirements can be accommodated.
+</div>
+</div>
+</div>
+
+<div class="accordion-item help-searchable">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button"
+data-bs-toggle="collapse" data-bs-target="#faq4">
+What if I paid but my request is missing?
+</button>
+</h2>
+<div id="faq4" class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Keep your payment reference and contact support. Include the
+payment date, amount, and the details you used for the request.
+Do not share your UPI PIN or OTP.
+</div>
+</div>
+</div>
+
+<div class="accordion-item help-searchable">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button"
+data-bs-toggle="collapse" data-bs-target="#faq5">
+How can I leave a review?
+</button>
+</h2>
+<div id="faq5" class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Visit the <a href="reviews.html">Reviews page</a> to share your
+feedback using the review form.
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="no-results mt-3" id="noResults">
+<i class="bi bi-search fs-3"></i>
+<p class="mt-2 mb-0">
+No matching information found. Try another keyword or contact support.
+</p>
+</div>
+
+</section>
+
+<!-- CONTACT SUPPORT -->
+
+<section class="support-box" id="contact">
+
+<i class="bi bi-headset"></i>
+
+<h3>Still Need <span>Help?</span></h3>
+
+<p>
+We're here to help with your song request, payment questions,
+or other concerns. Contact us using the options below.
+</p>
+
+<div class="support-actions">
+
+<!-- Replace with your actual support email -->
+<a class="btn-pink"
+href="mailto:support@createyoursong.com?subject=CreateYourSong%20Help">
+<i class="bi bi-envelope me-1"></i>
+Email Support
+</a>
+
+<!-- Replace the placeholder with your real WhatsApp number -->
+<a class="btn-pink"
+href="https://wa.me/91XXXXXXXXXX"
+target="_blank" rel="noopener noreferrer">
+<i class="bi bi-whatsapp me-1"></i>
+WhatsApp Support
+</a>
+
+<a href="help.html" class="btn-pink">
+<i class="bi bi-question-circle me-1"></i>
+Visit Help Page
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="footer-inner">
+
+<a href="index.html" class="footer-brand">
+<i class="bi bi-music-note-list"></i>
+<div>
+<strong>CreateYourSong</strong>
+<small>Real Stories, Real Songs</small>
+</div>
+</a>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<span>|</span>
+<a href="create.html">Send Request</a>
+<span>|</span>
+<a href="reviews.html">Reviews</a>
+<span>|</span>
+<a href="about.html">About</a>
+<span>|</span>
+<a href="help.html">Help</a>
+<span>|</span>
+<a href="login.html">Login</a>
+</div>
+
+</div>
+
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Automatic footer year
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// Search all help guides and FAQs
+function searchHelp() {
+    const input = document.getElementById("helpSearch");
+    const keyword = input.value.trim().toLowerCase();
+
+    const items = document.querySelectorAll(".help-searchable");
+    const noResults = document.getElementById("noResults");
+
+    let count = 0;
+
+    items.forEach(function(item) {
+        const matches = item.textContent
+            .toLowerCase()
+            .includes(keyword);
+
+        item.style.display = matches ? "" : "none";
+
+        if (matches) {
+            count++;
+        } else {
+            // Close hidden FAQ answers
+            const panel = item.querySelector(".accordion-collapse");
+
+            if (panel) {
+                const instance =
+                    bootstrap.Collapse.getInstance(panel);
+
+                if (instance) {
+                    instance.hide();
+                }
+            }
+        }
+    });
+
+    noResults.style.display = count === 0 ? "block" : "none";
+}
+
+// Search while typing
+document.getElementById("helpSearch").addEventListener(
+    "input",
+    searchHelp
+);
+
+// Search when Enter is pressed
+document.getElementById("helpSearch").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            searchHelp();
+        }
+    }
+);
+</script>
+
+</body>
+</html>
