@@ -2,445 +2,1775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CreateYourSong | Send Request</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:'Poppins',sans-serif;background:#fff0f7;color:#4a1a2e}
-.navbar{background:white;box-shadow:0 3px 15px #ff4d9420;padding:15px 0}
-.navbar-brand{color:#ff4d94!important;font-size:23px;font-weight:700}
-.navbar-brand span{color:#4a1a2e}
-.nav-link{color:#4a1a2e!important;font-weight:500;margin:0 7px}
-.nav-link:hover{color:#ff4d94!important}
-.main-section{padding:45px 12px}
-.page-title{text-align:center;color:#c92666;font-weight:700;font-size:34px}
-.page-subtitle{text-align:center;color:#7a5062;margin:12px 0 35px}
-.form-card,.payment-card{max-width:900px;margin:auto;padding:35px;background:white;border-radius:24px;box-shadow:0 10px 35px #ff4d9426}
-.section-title{color:#c92666;font-size:20px;font-weight:600;margin:30px 0 20px;padding-bottom:9px;border-bottom:2px solid #ffe4f0}
-.form-label{font-weight:500;margin-bottom:7px}
-.form-control,.form-select{border:1px solid #f3b5d0;border-radius:12px;padding:12px 14px}
-.form-control:focus,.form-select:focus{border-color:#ff4d94;box-shadow:0 0 0 .2rem #ff4d9426}
-textarea.form-control{min-height:110px;resize:vertical}
-.range-value{color:#ff4d94;font-weight:600;margin-top:5px}
-.submit-btn,.payment-btn{width:100%;border:0;border-radius:30px;padding:14px;background:linear-gradient(135deg,#ff4d94,#c92666);color:white;font-size:16px;font-weight:600;transition:.2s;text-decoration:none;display:block;text-align:center}
-.submit-btn:hover,.payment-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #c9266633;color:white}
-.submit-btn:disabled{opacity:.7;cursor:wait}
-#successMessage{display:none;margin-top:22px;padding:16px;border:1px solid #ffb3d1;border-radius:14px;background:#fff0f7;color:#c92666;text-align:center}
-.payment-card{display:none;margin-top:28px;text-align:center;scroll-margin-top:25px;animation:appear .4s ease}
-@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-.payment-heading{color:#c92666;font-weight:700;margin:12px 0}
-.payment-amount{font-size:38px;font-weight:700;color:#c92666;margin:15px 0}
-.payment-note{color:#7a5062;line-height:1.8}
-.payment-warning{margin:15px auto;padding:13px;background:#fff8e7;border-radius:12px;color:#76591a;font-size:13px}
-footer{margin-top:35px;padding:23px 10px;text-align:center;background:white;color:#7a5062}
-@media(max-width:768px){.form-card,.payment-card{padding:23px 17px}.page-title{font-size:27px}.main-section{padding:32px 12px}}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#fff0f7;
+    color:#4a1a2e;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:#fff;
+    box-shadow:0 3px 15px #ff4d9420;
+    padding:15px 0;
+}
+
+.navbar-brand{
+    color:#ff4d94!important;
+    font-size:23px;
+    font-weight:700;
+}
+
+.navbar-brand span{
+    color:#4a1a2e;
+}
+
+.nav-link{
+    color:#4a1a2e!important;
+    font-weight:500;
+    margin:0 7px;
+}
+
+.nav-link:hover,
+.nav-link.active{
+    color:#ff4d94!important;
+}
+
+/* MAIN */
+
+.main-section{
+    padding:45px 12px;
+}
+
+.page-title{
+    text-align:center;
+    color:#c92666;
+    font-weight:700;
+    font-size:34px;
+}
+
+.page-subtitle{
+    text-align:center;
+    color:#7a5062;
+    margin:12px 0 35px;
+}
+
+/* CARDS */
+
+.form-card,
+.payment-card{
+    max-width:900px;
+    margin:auto;
+    padding:35px;
+    background:#fff;
+    border-radius:24px;
+    box-shadow:0 10px 35px #ff4d9426;
+}
+
+.payment-card{
+    display:none;
+    margin-top:28px;
+    text-align:center;
+    scroll-margin-top:25px;
+    animation:appear .4s ease;
+}
+
+.section-title{
+    color:#c92666;
+    font-size:20px;
+    font-weight:600;
+    margin:30px 0 20px;
+    padding-bottom:9px;
+    border-bottom:2px solid #ffe4f0;
+}
+
+.form-label{
+    font-weight:500;
+    margin-bottom:7px;
+}
+
+.form-control,
+.form-select{
+    border:1px solid #f3b5d0;
+    border-radius:12px;
+    padding:12px 14px;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#ff4d94;
+    box-shadow:0 0 0 .2rem #ff4d9426;
+}
+
+textarea.form-control{
+    min-height:110px;
+    resize:vertical;
+}
+
+.range-value{
+    color:#ff4d94;
+    font-weight:600;
+    margin-top:5px;
+}
+
+/* BUTTONS */
+
+.submit-btn,
+.payment-btn{
+    width:100%;
+    border:0;
+    border-radius:30px;
+    padding:14px;
+    background:linear-gradient(135deg,#ff4d94,#c92666);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    transition:.2s;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+}
+
+.submit-btn:hover,
+.payment-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px #c9266633;
+    color:white;
+}
+
+.submit-btn:disabled,
+.payment-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+    transform:none;
+}
+
+/* SUCCESS */
+
+#successMessage{
+    display:none;
+    margin-top:22px;
+    padding:16px;
+    border:1px solid #ffb3d1;
+    border-radius:14px;
+    background:#fff0f7;
+    color:#c92666;
+    text-align:center;
+}
+
+/* PAYMENT */
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.payment-heading{
+    color:#c92666;
+    font-weight:700;
+    margin:12px 0;
+}
+
+.payment-amount{
+    font-size:38px;
+    font-weight:700;
+    color:#c92666;
+    margin:15px 0;
+}
+
+.payment-note{
+    color:#7a5062;
+    line-height:1.8;
+}
+
+.payment-warning{
+    margin:15px auto;
+    padding:13px;
+    background:#fff8e7;
+    border-radius:12px;
+    color:#76591a;
+    font-size:13px;
+}
+
+#paymentMessage{
+    min-height:25px;
+}
+
+/* SUCCESS POPUP */
+
+.success-overlay{
+    position:fixed;
+    inset:0;
+    background:#4a1a2e99;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.success-overlay.show{
+    display:flex;
+}
+
+.success-box{
+    width:100%;
+    max-width:440px;
+    background:#fff;
+    border-radius:25px;
+    padding:35px 25px;
+    text-align:center;
+    animation:pop .3s ease;
+}
+
+.success-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:#eafff2;
+    color:#20a65a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+}
+
+.success-box h3{
+    color:#c92666;
+    font-weight:700;
+}
+
+.success-box p{
+    color:#7a5062;
+}
+
+@keyframes pop{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:35px;
+    padding:23px 10px;
+    text-align:center;
+    background:#fff;
+    color:#7a5062;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .form-card,
+    .payment-card{
+        padding:23px 17px;
+    }
+
+    .page-title{
+        font-size:27px;
+    }
+
+    .main-section{
+        padding:32px 12px;
+    }
+
+    .payment-amount{
+        font-size:34px;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+
+<!-- =====================================================
+NAVBAR
+===================================================== -->
+
 <nav class="navbar navbar-expand-lg">
+
 <div class="container">
-<a class="navbar-brand" href="index.html">
-<i class="bi bi-music-note-beamed"></i> Create<span>YourSong</span>
+
+<a
+class="navbar-brand"
+href="index.html"
+id="homeLink">
+
+<i class="bi bi-music-note-beamed"></i>
+
+Create<span>YourSong</span>
+
 </a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+
+
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
 <span class="navbar-toggler-icon"></span>
+
 </button>
-<div class="collapse navbar-collapse" id="navbarNav">
+
+
+<div
+class="collapse navbar-collapse"
+id="navbarNav">
+
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house"></i> Home</a></li>
-<li class="nav-item"><a class="nav-link active" href="create1.html"><i class="bi bi-music-note"></i> Send Request</a></li>
-<li class="nav-item"><a class="nav-link" href="reviews.html"><i class="bi bi-star"></i> Reviews</a></li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link"
+href="#home"
+id="homeNavLink">
+
+<i class="bi bi-house"></i>
+
+Home
+
+</a>
+
+</li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link active"
+href="create1.html">
+
+<i class="bi bi-music-note"></i>
+
+Send Request
+
+</a>
+
+</li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link"
+href="reviews.html">
+
+<i class="bi bi-star"></i>
+
+Reviews
+
+</a>
+
+</li>
+
+
 </ul>
+
 </div>
+
 </div>
+
 </nav>
 
+
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
 <main class="main-section">
+
 <div class="container">
 
-<h1 class="page-title">Create Your Personalized Song 🎵</h1>
-<p class="page-subtitle">Tell us your story and we'll turn your special moments into a song.</p>
 
-<div class="form-card">
-<form id="songRequestForm">
+<h1 class="page-title">
 
-<h3 class="section-title"><i class="bi bi-person"></i> Your Details</h3>
-<div class="row g-3">
+Create Your Personalized Song 🎵
 
-<div class="col-md-6">
-<label class="form-label">Your Name *</label>
-<input type="text" class="form-control" name="customerName" placeholder="Enter your name" autocomplete="name" required>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Email *</label>
-<input type="email" class="form-control" name="email" placeholder="Enter your email" autocomplete="email" required>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Phone Number *</label>
-<input type="tel" class="form-control" name="phone" placeholder="10-digit phone number" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" required>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Song For *</label>
-<select class="form-select" name="songFor" required>
-<option value="">Select</option>
-<option>Myself</option><option>Family Member</option><option>Friend</option><option>Partner</option><option>Other</option>
-</select>
-</div>
-</div>
-
-<h3 class="section-title"><i class="bi bi-heart"></i> About The Person</h3>
-<div class="row g-3">
-
-<div class="col-md-6">
-<label class="form-label">Occasion *</label>
-<select class="form-select" name="occasion" required>
-<option value="">Select Occasion</option>
-<option>Birthday</option><option>Anniversary</option><option>Wedding</option><option>Proposal</option><option>Friendship</option><option>Family</option><option>Memories</option><option>Other</option>
-</select>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Person's Name *</label>
-<input type="text" class="form-control" name="personName" placeholder="Enter person's name" required>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Relationship *</label>
-<select class="form-select" name="relationship" required>
-<option value="">Select Relationship</option>
-<option>Mother</option><option>Father</option><option>Brother</option><option>Sister</option><option>Friend</option><option>Boyfriend</option><option>Girlfriend</option><option>Husband</option><option>Wife</option><option>Other</option>
-</select>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Language *</label>
-<select class="form-select" name="language" required>
-<option value="">Select Language</option>
-<option>English</option><option>Hindi</option><option>Marathi</option><option>Hinglish</option><option>Other</option>
-</select>
-</div>
-
-<div class="col-12">
-<label class="form-label">Tell us about the person *</label>
-<textarea class="form-control" name="personDetails" placeholder="Personality, qualities, memories..." required></textarea>
-</div>
-</div>
-
-<h3 class="section-title"><i class="bi bi-music-note-list"></i> Song Style</h3>
-<div class="row g-3">
-
-<div class="col-md-6">
-<label class="form-label">Music Style *</label>
-<select class="form-select" name="musicStyle" required>
-<option value="">Select Music Style</option>
-<option>Romantic</option><option>Emotional</option><option>Happy</option><option>Bollywood</option><option>Lo-fi</option><option>Pop</option><option>Acoustic</option><option>Other</option>
-</select>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Mood *</label>
-<select class="form-select" name="mood" required>
-<option value="">Select Mood</option>
-<option>Happy</option><option>Romantic</option><option>Emotional</option><option>Peaceful</option><option>Energetic</option><option>Fun</option>
-</select>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Voice *</label>
-<select class="form-select" name="voice" required>
-<option value="">Select Voice</option>
-<option>Male</option><option>Female</option><option>Both</option>
-</select>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Song Length</label>
-<input type="range" class="form-range" id="songLength" name="songLength" min="1" max="5" value="3">
-<div class="range-value" id="lengthValue">About 3 minutes</div>
-</div>
-</div>
-
-<h3 class="section-title"><i class="bi bi-pencil-heart"></i> Your Story</h3>
-<div class="row g-3">
-
-<div class="col-12">
-<label class="form-label">Tell us your story *</label>
-<textarea class="form-control" name="story" placeholder="Write your special story, memories or moments..." required></textarea>
-</div>
-
-<div class="col-12">
-<label class="form-label">Special Words / Lyrics</label>
-<textarea class="form-control" name="specialWords" placeholder="Names, phrases or special words to include"></textarea>
-</div>
-
-<div class="col-12">
-<label class="form-label">Anything to Avoid?</label>
-<textarea class="form-control" name="avoid" placeholder="Anything you don't want in the song?"></textarea>
-</div>
-</div>
-
-<h3 class="section-title"><i class="bi bi-calendar-heart"></i> Final Details</h3>
-<div class="row g-3">
-
-<div class="col-md-6">
-<label class="form-label">Preferred Contact Method *</label>
-<select class="form-select" name="contactMethod" required>
-<option value="">Select Contact Method</option>
-<option>Email</option><option>Phone</option><option>WhatsApp</option>
-</select>
-</div>
-
-<div class="col-md-6">
-<label class="form-label">Needed Date *</label>
-<input type="date" class="form-control" name="neededDate" id="neededDate" required>
-</div>
+</h1>
 
 
-<div id="successMessage" role="status"></div>
+<p class="page-subtitle">
 
-<div class="mt-4">
-<button type="submit" class="submit-btn" id="submitButton">
-<i class="bi bi-arrow-right-circle"></i> Continue to Payment
-</button>
-</div>
+Tell us your story and we'll turn your special moments into a song.
 
-</form>
-</div>
-
-<!-- PAYMENT PANEL -->
-<section class="payment-card" id="paymentPanel" aria-live="polite">
-
-<i class="bi bi-credit-card" style="font-size:42px;color:#c92666"></i>
-<h2 class="payment-heading">Complete Your Payment</h2>
-<p class="payment-note">Pay for your personalized song using your UPI payment link.</p>
-
-<div class="payment-amount">₹499 <span style="font-size:16px">/ song</span></div>
-
-<a href="upi://pay?pa=9411047777-3@ybl&pn=Ranjeet&am=499&cu=INR"
-   class="payment-btn"
-   target="_blank"
-   rel="noopener noreferrer">
-   <i class="bi bi-phone"></i> Pay ₹499 Now
-</a>
-
-<p class="payment-note mt-3">
-After paying, return to this page and enter your UPI transaction/reference ID.
 </p>
 
-<div class="text-start mt-4">
-<label for="transactionId" class="form-label">UPI Transaction / Reference ID *</label>
-<input type="text" id="transactionId" class="form-control" placeholder="Enter your payment reference ID" required>
-<div class="form-text">Do not enter your UPI PIN or OTP.</div>
+
+
+<!-- =====================================================
+REQUEST FORM
+===================================================== -->
+
+<div class="form-card">
+
+<form id="songRequestForm">
+
+
+<!-- YOUR DETAILS -->
+
+<h3 class="section-title">
+
+<i class="bi bi-person"></i>
+
+Your Details
+
+</h3>
+
+
+<div class="row g-3">
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Your Name *
+
+</label>
+
+<input
+type="text"
+class="form-control"
+name="customerName"
+placeholder="Enter your name"
+autocomplete="name"
+required>
+
 </div>
 
-<div class="payment-warning">
-<i class="bi bi-info-circle-fill"></i>
-Submitting the reference ID does not verify payment automatically. Your payment will be checked manually before your song is created.
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Email *
+
+</label>
+
+<input
+type="email"
+class="form-control"
+name="email"
+placeholder="Enter your email"
+autocomplete="email"
+required>
+
 </div>
 
-<button type="button" id="confirmPaymentButton" class="payment-btn mt-3">
-<i class="bi bi-check-circle"></i> I Have Paid ₹499 — Submit Request
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Phone Number *
+
+</label>
+
+<input
+type="tel"
+class="form-control"
+name="phone"
+placeholder="10-digit phone number"
+pattern="[0-9]{10}"
+maxlength="10"
+inputmode="numeric"
+required>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Song For *
+
+</label>
+
+<select
+class="form-select"
+name="songFor"
+required>
+
+<option value="">
+
+Select
+
+</option>
+
+<option>Myself</option>
+<option>Family Member</option>
+<option>Friend</option>
+<option>Partner</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+<!-- ABOUT PERSON -->
+
+<h3 class="section-title">
+
+<i class="bi bi-heart"></i>
+
+About The Person
+
+</h3>
+
+
+<div class="row g-3">
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Occasion *
+
+</label>
+
+<select
+class="form-select"
+name="occasion"
+required>
+
+<option value="">
+
+Select Occasion
+
+</option>
+
+<option>Birthday</option>
+<option>Anniversary</option>
+<option>Wedding</option>
+<option>Proposal</option>
+<option>Friendship</option>
+<option>Family</option>
+<option>Memories</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Person's Name *
+
+</label>
+
+<input
+type="text"
+class="form-control"
+name="personName"
+placeholder="Enter person's name"
+required>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Relationship *
+
+</label>
+
+<select
+class="form-select"
+name="relationship"
+required>
+
+<option value="">
+
+Select Relationship
+
+</option>
+
+<option>Mother</option>
+<option>Father</option>
+<option>Brother</option>
+<option>Sister</option>
+<option>Friend</option>
+<option>Boyfriend</option>
+<option>Girlfriend</option>
+<option>Husband</option>
+<option>Wife</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Language *
+
+</label>
+
+<select
+class="form-select"
+name="language"
+required>
+
+<option value="">
+
+Select Language
+
+</option>
+
+<option>English</option>
+<option>Hindi</option>
+<option>Marathi</option>
+<option>Hinglish</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="col-12">
+
+<label class="form-label">
+
+Tell us about the person *
+
+</label>
+
+<textarea
+class="form-control"
+name="personDetails"
+placeholder="Personality, qualities, memories..."
+required></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- SONG STYLE -->
+
+<h3 class="section-title">
+
+<i class="bi bi-music-note-list"></i>
+
+Song Style
+
+</h3>
+
+
+<div class="row g-3">
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Music Style *
+
+</label>
+
+<select
+class="form-select"
+name="musicStyle"
+required>
+
+<option value="">
+
+Select Music Style
+
+</option>
+
+<option>Romantic</option>
+<option>Emotional</option>
+<option>Happy</option>
+<option>Bollywood</option>
+<option>Lo-fi</option>
+<option>Pop</option>
+<option>Acoustic</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Mood *
+
+</label>
+
+<select
+class="form-select"
+name="mood"
+required>
+
+<option value="">
+
+Select Mood
+
+</option>
+
+<option>Happy</option>
+<option>Romantic</option>
+<option>Emotional</option>
+<option>Peaceful</option>
+<option>Energetic</option>
+<option>Fun</option>
+
+</select>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Voice *
+
+</label>
+
+<select
+class="form-select"
+name="voice"
+required>
+
+<option value="">
+
+Select Voice
+
+</option>
+
+<option>Male</option>
+<option>Female</option>
+<option>Both</option>
+
+</select>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Song Length
+
+</label>
+
+<input
+type="range"
+class="form-range"
+id="songLength"
+name="songLength"
+min="1"
+max="5"
+value="3">
+
+<div
+class="range-value"
+id="lengthValue">
+
+About 3 minutes
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- STORY -->
+
+<h3 class="section-title">
+
+<i class="bi bi-pencil-heart"></i>
+
+Your Story
+
+</h3>
+
+
+<div class="row g-3">
+
+
+<div class="col-12">
+
+<label class="form-label">
+
+Tell us your story *
+
+</label>
+
+<textarea
+class="form-control"
+name="story"
+placeholder="Write your special story, memories or moments..."
+required></textarea>
+
+</div>
+
+
+<div class="col-12">
+
+<label class="form-label">
+
+Special Words / Lyrics
+
+</label>
+
+<textarea
+class="form-control"
+name="specialWords"
+placeholder="Names, phrases or special words to include"></textarea>
+
+</div>
+
+
+<div class="col-12">
+
+<label class="form-label">
+
+Anything to Avoid?
+
+</label>
+
+<textarea
+class="form-control"
+name="avoid"
+placeholder="Anything you don't want in the song?"></textarea>
+
+</div>
+
+</div>
+
+
+
+<!-- FINAL DETAILS -->
+
+<h3 class="section-title">
+
+<i class="bi bi-calendar-heart"></i>
+
+Final Details
+
+</h3>
+
+
+<div class="row g-3">
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Preferred Contact Method *
+
+</label>
+
+<select
+class="form-select"
+name="contactMethod"
+required>
+
+<option value="">
+
+Select Contact Method
+
+</option>
+
+<option>Email</option>
+<option>Phone</option>
+<option>WhatsApp</option>
+
+</select>
+
+</div>
+
+
+<div class="col-md-6">
+
+<label class="form-label">
+
+Needed Date *
+
+</label>
+
+<input
+type="date"
+class="form-control"
+name="neededDate"
+id="neededDate"
+required>
+
+</div>
+
+</div>
+
+
+
+<!-- FORM MESSAGE -->
+
+<div
+id="successMessage"
+role="status">
+</div>
+
+
+
+<!-- SUBMIT -->
+
+<div class="mt-4">
+
+<button
+type="submit"
+class="submit-btn"
+id="submitButton">
+
+<i class="bi bi-arrow-right-circle"></i>
+
+Continue to Payment
+
 </button>
 
-<div id="paymentMessage" class="mt-3" role="status"></div>
+</div>
+
+
+</form>
+
+</div>
+
+
+
+<!-- =====================================================
+PAYMENT PANEL
+===================================================== -->
+
+<section
+class="payment-card"
+id="paymentPanel">
+
+
+<i
+class="bi bi-credit-card"
+style="font-size:42px;color:#c92666">
+</i>
+
+
+<h2 class="payment-heading">
+
+Complete Your Payment
+
+</h2>
+
+
+<p class="payment-note">
+
+Your personalized song costs ₹499.
+
+</p>
+
+
+<div class="payment-amount">
+
+₹499
+
+<span style="font-size:16px">
+
+/ song
+
+</span>
+
+</div>
+
+
+
+<!-- UPI PAYMENT -->
+
+<a
+href="upi://pay?pa=9411047777-3@ybl&pn=Ranjeet&am=499&cu=INR"
+class="payment-btn"
+target="_blank"
+rel="noopener noreferrer">
+
+<i class="bi bi-phone"></i>
+
+Pay ₹499 Now
+
+</a>
+
+
+
+<p class="payment-note mt-3">
+
+After completing the payment, return to this page and enter your UPI transaction/reference ID.
+
+</p>
+
+
+
+<!-- TRANSACTION ID -->
+
+<div class="text-start mt-4">
+
+<label
+for="transactionId"
+class="form-label">
+
+UPI Transaction / Reference ID *
+
+</label>
+
+
+<input
+type="text"
+id="transactionId"
+class="form-control"
+placeholder="Enter payment reference ID"
+maxlength="100"
+autocomplete="off">
+
+
+<div class="form-text">
+
+Never enter your UPI PIN, OTP or banking password.
+
+</div>
+
+</div>
+
+
+
+<!-- PAYMENT WARNING -->
+
+<div class="payment-warning">
+
+<i class="bi bi-info-circle-fill"></i>
+
+Your payment is manually verified before the song creation process begins.
+
+</div>
+
+
+
+<!-- FINAL SUBMIT -->
+
+<button
+type="button"
+id="confirmPaymentButton"
+class="payment-btn mt-3">
+
+<i class="bi bi-check-circle"></i>
+
+I Have Paid ₹499 — Submit Request
+
+</button>
+
+
+
+<div
+id="paymentMessage"
+class="mt-3"
+role="status">
+</div>
+
 
 </section>
 
 </div>
+
 </main>
 
+
+
+<!-- =====================================================
+SUCCESS POPUP
+===================================================== -->
+
+<div
+class="success-overlay"
+id="successOverlay">
+
+<div class="success-box">
+
+<div class="success-icon">
+
+<i class="bi bi-check-lg"></i>
+
+</div>
+
+
+<h3>
+
+Request Submitted! ❤️
+
+</h3>
+
+
+<p>
+
+Your song request has been received successfully.
+
+</p>
+
+
+<p>
+
+Payment will be manually verified before your song is created.
+
+</p>
+
+
+<small class="text-muted">
+
+Thank you for choosing CreateYourSong.
+
+</small>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
 <footer>
-CreateYourSong ❤️<br>
+
+CreateYourSong ❤️
+
+<br>
+
 Personalized songs made with love.
+
 </footer>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
 <script>
-/* GOOGLE SHEETS WEB APP URL */
-const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbyVKZouiZ90lDU65_jL3hMcPCOJdJVniDKPx4J3XHyhR1xoWs5zbAz6-GMInr4BnGAx/exec";
+
+/* =====================================================
+GOOGLE APPS SCRIPT
+===================================================== */
 
 /*
-IMPORTANT:
-Replace YOUR_UPI_PAYMENT_LINK in the payment button above
-with your actual UPI payment link.
+ IMPORTANT:
+ This is the SAME working Apps Script URL
+ used by your Reviews page.
 */
 
-const form = document.getElementById("songRequestForm");
-const submitButton = document.getElementById("submitButton");
-const successMessage = document.getElementById("successMessage");
-const paymentPanel = document.getElementById("paymentPanel");
-const transactionIdInput = document.getElementById("transactionId");
-const confirmPaymentButton = document.getElementById("confirmPaymentButton");
-const paymentMessage = document.getElementById("paymentMessage");
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzdGSHwMqz9KI9bvo0j6XATq86NMCVqg-C6Zk561ve4NQr1uw6NpsyYdvMyqxBHtzg/exec";
 
-let requestData = null;
-let requestSent = false;
 
-/* Song length display */
-const songLength = document.getElementById("songLength");
-const lengthValue = document.getElementById("lengthValue");
 
-songLength.addEventListener("input", function () {
-    const lengths = {
-        1: "About 1 minute",
-        2: "About 2 minutes",
-        3: "About 3 minutes",
-        4: "About 4 minutes",
-        5: "5+ minutes"
-    };
-    lengthValue.textContent = lengths[this.value];
-});
 
-/* Prevent choosing a past date */
-const neededDate = document.getElementById("neededDate");
-const now = new Date();
-const localToday = new Date(
-    now.getTime() - now.getTimezoneOffset() * 60000
-).toISOString().split("T")[0];
+/* =====================================================
+ELEMENTS
+===================================================== */
 
-neededDate.min = localToday;
+const form =
+document.getElementById("songRequestForm");
 
-/* Step 1: Validate form and show payment panel.
-   Do NOT send the request to Google Sheets yet. */
-form.addEventListener("submit", function (event) {
+const submitButton =
+document.getElementById("submitButton");
+
+const successMessage =
+document.getElementById("successMessage");
+
+const paymentPanel =
+document.getElementById("paymentPanel");
+
+const transactionIdInput =
+document.getElementById("transactionId");
+
+const confirmPaymentButton =
+document.getElementById("confirmPaymentButton");
+
+const paymentMessage =
+document.getElementById("paymentMessage");
+
+const successOverlay =
+document.getElementById("successOverlay");
+
+
+
+/* =====================================================
+HOME
+===================================================== */
+
+function goHome(event){
+
     event.preventDefault();
 
-    if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
+    /*
+    If your index.html contains login protection,
+    these flags allow the user to go directly home.
+    */
+
+    sessionStorage.setItem(
+        "skipLoginOnce",
+        "true"
+    );
+
+    localStorage.setItem(
+        "skipLoginOnce",
+        "true"
+    );
+
+    window.location.href =
+        "index.html";
+}
+
+
+document
+.getElementById("homeLink")
+.addEventListener(
+    "click",
+    goHome
+);
+
+
+document
+.getElementById("homeNavLink")
+.addEventListener(
+    "click",
+    goHome
+);
+
+
+
+/* =====================================================
+SONG LENGTH
+===================================================== */
+
+const songLength =
+document.getElementById("songLength");
+
+const lengthValue =
+document.getElementById("lengthValue");
+
+
+songLength.addEventListener(
+    "input",
+    function(){
+
+        const lengths = {
+
+            1:"About 1 minute",
+
+            2:"About 2 minutes",
+
+            3:"About 3 minutes",
+
+            4:"About 4 minutes",
+
+            5:"5+ minutes"
+
+        };
+
+
+        lengthValue.textContent =
+            lengths[this.value];
+
     }
+);
 
-    requestData = {
-        formType: "songRequest",
-        paymentAmount: "499",
-        paymentStatus: "Customer reported paid - Pending manual verification",
-        paymentVerified: "No",
-        submittedAt: new Date().toLocaleString()
-    };
 
-    new FormData(form).forEach(function (value, key) {
-        requestData[key] = value;
-    });
 
-    paymentPanel.style.display = "block";
+/* =====================================================
+MINIMUM DATE
+===================================================== */
 
-    successMessage.style.display = "block";
-    successMessage.textContent =
-        "Your details are ready. Complete the ₹499 payment, then enter your transaction/reference ID below.";
+const neededDate =
+document.getElementById("neededDate");
 
-    submitButton.disabled = true;
-    submitButton.innerHTML =
-        '<i class="bi bi-check-circle-fill"></i> Details Saved — Complete Payment';
 
-    paymentPanel.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-});
+const today =
+new Date();
 
-/* Step 2: Submit request only after customer reports payment */
-confirmPaymentButton.addEventListener("click", async function () {
-    if (!requestData) {
-        paymentMessage.className = "mt-3 text-danger";
-        paymentMessage.textContent = "Please complete the song request form first.";
-        return;
-    }
 
-    const transactionId = transactionIdInput.value.trim();
+const todayString =
+new Date(
+    today.getTime() -
+    today.getTimezoneOffset() * 60000
+)
+.toISOString()
+.split("T")[0];
 
-    if (!transactionId) {
-        transactionIdInput.focus();
-        transactionIdInput.reportValidity();
-        transactionIdInput.setCustomValidity("Please enter your transaction/reference ID.");
-        transactionIdInput.reportValidity();
-        return;
-    }
 
-    transactionIdInput.setCustomValidity("");
+neededDate.min =
+    todayString;
 
-    if (requestSent) return;
 
-    requestData.transactionId = transactionId;
-    requestData.paymentStatus =
-        "Customer reported paid - Pending manual verification";
-    requestData.paymentVerified = "No";
-    requestData.submittedAt = new Date().toLocaleString();
 
-    confirmPaymentButton.disabled = true;
-    confirmPaymentButton.innerHTML =
-        '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+/* =====================================================
+REQUEST DATA
+===================================================== */
 
-    paymentMessage.className = "mt-3 text-muted";
-    paymentMessage.textContent = "Submitting your request...";
+let requestData = null;
 
-    try {
-        /* Keep a local backup on this browser */
-        try {
-            localStorage.setItem(
-                "latestSongRequest",
-                JSON.stringify(requestData)
-            );
-        } catch (storageError) {
-            console.warn("Local backup unavailable.", storageError);
+let requestSent = false;
+
+
+
+/* =====================================================
+STEP 1
+FORM VALIDATION
+===================================================== */
+
+form.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        /* HTML validation */
+
+        if(!form.checkValidity()){
+
+            form.reportValidity();
+
+            return;
+
         }
 
-        /*
-        Apps Script may not return a readable response when using no-cors.
-        A completed fetch does not prove that the sheet saved the row.
-        */
-        await fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(requestData)
+
+        /* Collect all form values */
+
+        requestData = {};
+
+
+        const formData =
+            new FormData(form);
+
+
+        formData.forEach(
+            function(value,key){
+
+                requestData[key] =
+                    value;
+
+            }
+        );
+
+
+        /* Tell Apps Script this is a request */
+
+        requestData.formType =
+            "request";
+
+
+        /* Payment information */
+
+        requestData.paymentAmount =
+            "499";
+
+        requestData.paymentStatus =
+            "Customer reported paid - Pending manual verification";
+
+        requestData.paymentVerified =
+            "No";
+
+
+        /* Show payment panel */
+
+        paymentPanel.style.display =
+            "block";
+
+
+        successMessage.style.display =
+            "block";
+
+
+        successMessage.innerHTML =
+
+            '<i class="bi bi-check-circle-fill"></i> ' +
+
+            'Your details are ready. Complete the ₹499 payment and then enter your transaction/reference ID.';
+
+
+        submitButton.disabled =
+            true;
+
+
+        submitButton.innerHTML =
+
+            '<i class="bi bi-credit-card"></i> Complete ₹499 Payment';
+
+
+        paymentPanel.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
         });
 
-        requestSent = true;
-
-        paymentMessage.className = "mt-3 text-success";
-        paymentMessage.innerHTML =
-            '<i class="bi bi-check-circle-fill"></i> Your request has been sent. Your payment is pending manual verification.';
-
-        confirmPaymentButton.innerHTML =
-            '<i class="bi bi-check-circle-fill"></i> Request Submitted';
-
-        form.reset();
-        lengthValue.textContent = "About 3 minutes";
-
-    } catch (error) {
-        console.error("Submission error:", error);
-
-        paymentMessage.className = "mt-3 text-danger";
-        paymentMessage.textContent =
-            "We could not submit the request. Please check your internet connection and try again.";
-
-        confirmPaymentButton.disabled = false;
-        confirmPaymentButton.innerHTML =
-            '<i class="bi bi-arrow-repeat"></i> Try Submitting Again';
     }
-});
+);
 
-transactionIdInput.addEventListener("input", function () {
-    transactionIdInput.setCustomValidity("");
-});
+
+
+/* =====================================================
+STEP 2
+FINAL REQUEST SUBMISSION
+===================================================== */
+
+confirmPaymentButton.addEventListener(
+    "click",
+    async function(){
+
+        /* Make sure form was completed */
+
+        if(!requestData){
+
+            paymentMessage.className =
+                "mt-3 text-danger";
+
+            paymentMessage.innerHTML =
+
+                '<i class="bi bi-exclamation-circle"></i> Please complete the request form first.';
+
+            return;
+
+        }
+
+
+        /* Get transaction ID */
+
+        const transactionId =
+            transactionIdInput.value.trim();
+
+
+        if(!transactionId){
+
+            transactionIdInput.focus();
+
+            paymentMessage.className =
+                "mt-3 text-danger";
+
+            paymentMessage.innerHTML =
+
+                '<i class="bi bi-exclamation-circle"></i> Please enter your payment reference ID.';
+
+            return;
+
+        }
+
+
+        /* Prevent duplicate submissions */
+
+        if(requestSent){
+
+            return;
+
+        }
+
+
+        /* Add final payment information */
+
+        requestData.transactionId =
+            transactionId;
+
+        requestData.paymentAmount =
+            "499";
+
+        requestData.paymentStatus =
+            "Customer reported paid - Pending manual verification";
+
+        requestData.paymentVerified =
+            "No";
+
+        requestData.formType =
+            "request";
+
+
+
+        /* Disable button */
+
+        confirmPaymentButton.disabled =
+            true;
+
+
+        confirmPaymentButton.innerHTML =
+
+            '<span class="spinner-border spinner-border-sm me-2"></span> Submitting Request...';
+
+
+        paymentMessage.className =
+            "mt-3 text-muted";
+
+
+        paymentMessage.textContent =
+            "Submitting your request...";
+
+
+
+        try{
+
+            /*
+            Apps Script reads e.parameter.
+            Therefore send URL encoded data.
+            */
+
+            const googleFormData =
+                new URLSearchParams();
+
+
+            Object.keys(requestData)
+            .forEach(
+                function(key){
+
+                    googleFormData.append(
+
+                        key,
+
+                        requestData[key] ?? ""
+
+                    );
+
+                }
+            );
+
+
+
+            /*
+            Send request to Google Apps Script.
+
+            no-cors is used for GitHub Pages.
+            */
+
+            await fetch(
+
+                GOOGLE_SCRIPT_URL,
+
+                {
+
+                    method:"POST",
+
+                    mode:"no-cors",
+
+                    headers:{
+
+                        "Content-Type":
+                        "application/x-www-form-urlencoded;charset=UTF-8"
+
+                    },
+
+                    body:
+                    googleFormData.toString()
+
+                }
+
+            );
+
+
+
+            /* Mark as submitted */
+
+            requestSent =
+                true;
+
+
+
+            /* Local backup */
+
+            try{
+
+                localStorage.setItem(
+
+                    "latestSongRequest",
+
+                    JSON.stringify(requestData)
+
+                );
+
+            }
+
+            catch(error){
+
+                console.log(
+                    "Local backup unavailable"
+                );
+
+            }
+
+
+
+            /* Success message */
+
+            paymentMessage.className =
+                "mt-3 text-success";
+
+
+            paymentMessage.innerHTML =
+
+                '<i class="bi bi-check-circle-fill"></i> ' +
+
+                '<strong>Your request has been submitted successfully!</strong>' +
+
+                '<br>Payment is pending manual verification.';
+
+
+
+            confirmPaymentButton.innerHTML =
+
+                '<i class="bi bi-check-circle-fill"></i> Request Submitted';
+
+
+
+            /* Show success popup */
+
+            successOverlay.classList.add(
+                "show"
+            );
+
+
+            /*
+            Redirect to home after 2 seconds.
+            */
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "index.html";
+
+                },
+                2000
+            );
+
+        }
+
+
+        catch(error){
+
+            console.error(
+                "Google Sheets error:",
+                error
+            );
+
+
+            paymentMessage.className =
+                "mt-3 text-danger";
+
+
+            paymentMessage.innerHTML =
+
+                '<i class="bi bi-exclamation-triangle-fill"></i> ' +
+
+                'Could not submit the request. Please try again.';
+
+
+            confirmPaymentButton.disabled =
+                false;
+
+
+            confirmPaymentButton.innerHTML =
+
+                '<i class="bi bi-arrow-repeat"></i> Try Again';
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+TRANSACTION INPUT
+===================================================== */
+
+transactionIdInput.addEventListener(
+    "input",
+    function(){
+
+        paymentMessage.textContent =
+            "";
+
+    }
+);
+
 </script>
 
 </body>
 </html>
+
