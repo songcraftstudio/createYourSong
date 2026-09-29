@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Help & Support | CreateYourSong</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #ff4d94;
+            --pink-dark: #e0357a;
+            --pink-light: #ffe4f0;
+            --pink-soft: #fff0f7;
+            --white-soft: #fffafc;
+            --text-dark: #4a1a2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--white-soft);
+            color: var(--text-dark);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 3px 18px rgba(255, 77, 148, 0.08);
+        }
+
+        .navbar-brand {
+            color: var(--pink-dark);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .navbar-brand:hover {
+            color: var(--pink-dark);
+        }
+
+        .navbar-brand span {
+            color: var(--text-dark);
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--pink-dark);
+        }
+
+        /* BUTTONS */
+        .btn-pink {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-pink:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(255, 77, 148, 0.25);
+        }
+
+        .btn-outline-pink {
+            display: inline-block;
+            color: var(--pink-dark);
+            background: white;
+            border: 1px solid var(--pink);
+            border-radius: 30px;
+            padding: 11px 22px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline-pink:hover {
+            background: var(--pink-soft);
+            color: var(--pink-dark);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 75px 15px 65px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff0f7, #ffffff, #ffe4f0);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: white;
+            color: var(--pink-dark);
+            border: 1px solid var(--pink-light);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--pink-dark);
+        }
+
+        .hero p {
+            color: #79566a;
+            max-width: 650px;
+            margin: 0 auto 28px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* SEARCH */
+        .search-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--pink-dark);
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 1px solid #f5c6da;
+            border-radius: 35px;
+            outline: none;
+            font-family: inherit;
+            background: white;
+        }
+
+        .search-wrapper input:focus {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 4px rgba(255, 77, 148, 0.1);
+        }
+
+        /* GENERAL SECTION */
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading .small-title {
+            color: var(--pink-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(25px, 4vw, 34px);
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: #79566a;
+            font-size: 14px;
+        }
+
+        /* QUICK HELP CARDS */
+        .help-card {
+            height: 100%;
+            background: white;
+            border: 1px solid #f8d9e7;
+            border-radius: 22px;
+            padding: 30px 24px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(74, 26, 46, 0.03);
+        }
+
+        .help-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(255, 77, 148, 0.12);
+            border-color: #ffb8d4;
+        }
+
+        .help-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            background: var(--pink-soft);
+            color: var(--pink-dark);
+            font-size: 28px;
+        }
+
+        .help-card h5 {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .help-card p {
+            color: #79566a;
+            font-size: 13px;
+            line-height: 1.8;
+            min-height: 48px;
+        }
+
+        /* FAQ */
+        .faq-wrapper {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .accordion-item {
+            border: 1px solid #f8d9e7 !important;
+            border-radius: 14px !important;
+            overflow: hidden;
+            margin-bottom: 14px;
+            background: white;
+        }
+
+        .accordion-button {
+            padding: 20px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: white;
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--pink-soft);
+            color: var(--pink-dark);
+        }
+
+        .accordion-button::after {
+            filter: hue-rotate(290deg);
+        }
+
+        .accordion-body {
+            color: #79566a;
+            font-size: 13px;
+            line-height: 1.9;
+            padding: 20px;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 25px;
+            color: #79566a;
+            background: white;
+            border-radius: 15px;
+            border: 1px solid #f8d9e7;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: linear-gradient(135deg, #fff0f7, #fffafc);
+        }
+
+        .contact-card {
+            height: 100%;
+            background: white;
+            padding: 30px 24px;
+            border: 1px solid #f8d9e7;
+            border-radius: 22px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(255, 77, 148, 0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--pink-soft);
+            color: var(--pink-dark);
+            font-size: 27px;
+            border-radius: 18px;
+            margin: 0 auto 18px;
+        }
+
+        .contact-card h5 {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #79566a;
+            min-height: 48px;
+        }
+
+        /* FINAL CTA */
+        .cta-box {
+            padding: 45px 25px;
+            text-align: center;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ffe4f0, #fff0f7);
+            border: 1px solid #f8d9e7;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #79566a;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            background: white;
+            border-top: 1px solid #f8d9e7;
+        }
+
+        footer p {
+            color: #79566a;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--pink-dark);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 55px 15px;
+            }
+
+            .section {
+                padding: 45px 0;
+            }
+
+            .navbar-brand {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-music-note-beamed"></i>
+            Create<span>YourSong</span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house-door me-1"></i>Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="create.html">
+                        <i class="bi bi-music-note-list me-1"></i>Send Request
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="reviews.html">
+                        <i class="bi bi-star me-1"></i>Reviews
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <i class="bi bi-info-circle me-1"></i>About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="help.html">
+                        <i class="bi bi-question-circle me-1"></i>Help
+                    </a>
+                </li>
+
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a class="btn-pink" href="create.html">
+                        <i class="bi bi-heart-fill me-1"></i>Create Your Song
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+
+        <div class="hero-badge">
+            <i class="bi bi-heart-fill me-1"></i>
+            We're Here to Help
+        </div>
+
+        <h1>How Can We <span>Help You?</span></h1>
+
+        <p>
+            Have questions about your personalized song? Find answers,
+            explore our helpful guides, or contact us. We're here to make
+            your CreateYourSong experience simple and special.
+        </p>
+
+        <div class="search-wrapper">
+            <i class="bi bi-search"></i>
+            <input
+                type="text"
+                id="faqSearch"
+                placeholder="Search your question..."
+                aria-label="Search frequently asked questions"
+                oninput="searchFAQs()">
+        </div>
+
+    </div>
+</section>
+
+<!-- QUICK HELP -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="small-title">Quick Assistance</div>
+            <h2>What Do You Need Help With?</h2>
+            <p>Choose a topic to get started.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="bi bi-music-note-list"></i>
+                    </div>
+
+                    <h5>Song Requests</h5>
+
+                    <p>
+                        Learn how to submit your details and request a
+                        personalized song for someone special.
+                    </p>
+
+                    <a href="help-center.html" class="btn-outline-pink">
+                        Learn More <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="bi bi-credit-card"></i>
+                    </div>
+
+                    <h5>Payments</h5>
+
+                    <p>
+                        Find helpful information about payments, payment
+                        links, and what to do if a payment fails.
+                    </p>
+
+                    <a href="help-center.html#payments" class="btn-outline-pink">
+                        Learn More <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="bi bi-headphones"></i>
+                    </div>
+
+                    <h5>Song Delivery</h5>
+
+                    <p>
+                        Understand the song creation process and how to
+                        contact us about your request.
+                    </p>
+
+                    <a href="help-center.html#delivery" class="btn-outline-pink">
+                        Learn More <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:#fff5f9;">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="small-title">Frequently Asked Questions</div>
+            <h2>Find Your Answers</h2>
+            <p>Here are some common questions about CreateYourSong.</p>
+        </div>
+
+        <div class="faq-wrapper">
+
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq1">
+                            <i class="bi bi-music-note-beamed me-2"></i>
+                            What is CreateYourSong?
+                        </button>
+                    </h2>
+
+                    <div id="faq1" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            CreateYourSong is a personalized song service.
+                            You share details about a person, occasion, or
+                            special memory, and we use your information to
+                            create a song tailored to your request.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq2">
+                            <i class="bi bi-pencil-square me-2"></i>
+                            How can I request a personalized song?
+                        </button>
+                    </h2>
+
+                    <div id="faq2" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Open the Send Request page, fill in the required
+                            details, select your preferences, and submit the
+                            form. Follow the payment instructions displayed
+                            on your website, if payment is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq3">
+                            <i class="bi bi-currency-rupee me-2"></i>
+                            How much does a personalized song cost?
+                        </button>
+                    </h2>
+
+                    <div id="faq3" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Please check the price displayed on the Send
+                            Request page before placing your request.
+                            The applicable amount and payment instructions
+                            should be confirmed there.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq4">
+                            <i class="bi bi-clock me-2"></i>
+                            How long does it take to receive my song?
+                        </button>
+                    </h2>
+
+                    <div id="faq4" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            The delivery time can depend on your request
+                            and the creation process. Please contact us
+                            with your request details for an update.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq5">
+                            <i class="bi bi-credit-card-2-front me-2"></i>
+                            What if my payment fails?
+                        </button>
+                    </h2>
+
+                    <div id="faq5" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Check your internet connection and payment
+                            application, then verify your payment status.
+                            Avoid paying twice if the first transaction
+                            is still pending. Contact support if the
+                            amount was deducted but your payment is not
+                            confirmed.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq6">
+                            <i class="bi bi-pencil me-2"></i>
+                            Can I correct details after submitting?
+                        </button>
+                    </h2>
+
+                    <div id="faq6" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            If you notice a mistake after submitting your
+                            request, contact us as soon as possible and
+                            provide the details that need correction.
+                            Changes may depend on the progress of your song.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq7">
+                            <i class="bi bi-shield-lock me-2"></i>
+                            How is my personal information used?
+                        </button>
+                    </h2>
+
+                    <div id="faq7" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Please share only the information needed to
+                            create your song. Your website should handle
+                            customer information securely and use it only
+                            for the purposes described in its privacy
+                            policy.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq8">
+                            <i class="bi bi-chat-dots me-2"></i>
+                            How can I contact support?
+                        </button>
+                    </h2>
+
+                    <div id="faq8" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can use the Email Us option below or open
+                            the Help Center for detailed guides and
+                            additional information.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="no-results mt-3" id="noResults">
+                <i class="bi bi-search fs-3 d-block mb-2"></i>
+                <strong>No matching questions found.</strong>
+                <p class="mb-0 mt-2">
+                    Try another search or visit our Help Center.
+                </p>
+                <a href="help-center.html" class="btn-pink mt-3">
+                    Open Help Center
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT & HELP CENTER -->
+<section class="section contact-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="small-title">Still Need Help?</div>
+            <h2>We're Here for You</h2>
+            <p>Choose an option below to get the assistance you need.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- EMAIL -->
+            <div class="col-md-4">
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-envelope-heart"></i>
+                    </div>
+
+                    <h5>Email Us</h5>
+
+                    <p>
+                        Have a question about your song request?
+                        Send us an email for assistance.
+                    </p>
+
+                    <!-- Replace with your real support email -->
+                    <a href="mailto:YOUR_EMAIL@example.com"
+                       class="btn-pink">
+                        <i class="bi bi-envelope me-1"></i>
+                        Send Email
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- WHATSAPP -->
+            <div class="col-md-4">
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+
+                    <h5>WhatsApp Support</h5>
+
+                    <p>
+                        Need a quick answer? Contact us on WhatsApp
+                        about your request or payment.
+                    </p>
+
+                    <!-- Replace 91XXXXXXXXXX with your WhatsApp number -->
+                    <a href="https://wa.me/91XXXXXXXXXX"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn-pink">
+                        <i class="bi bi-whatsapp me-1"></i>
+                        Chat With Us
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- HELP CENTER: CONNECTED -->
+            <div class="col-md-4">
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+
+                    <h5>Help Center</h5>
+
+                    <p>
+                        Have another question? Browse our detailed
+                        guides to find helpful answers.
+                    </p>
+
+                    <a href="help-center.html" class="btn-pink">
+                        <i class="bi bi-book me-1"></i>
+                        View Guides
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section">
+    <div class="container">
+
+        <div class="cta-box">
+            <h2>Ready to Create Something Special? 💗</h2>
+
+            <p>
+                Turn your memories, feelings, and special moments into
+                a personalized song made just for you.
+            </p>
+
+            <a href="create.html" class="btn-pink">
+                <i class="bi bi-music-note-beamed me-1"></i>
+                Create Your Song
+            </a>
+
+            <a href="index.html" class="btn-outline-pink ms-2">
+                <i class="bi bi-house-door me-1"></i>
+                Back to Home
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>
+        
+            <a href="index.html"><strong>CreateYourSong</strong></a>.
+            Made with <i class="bi bi-heart-fill" style="color:#ff4d94;"></i>
+            for your special moments.
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // SEARCH FAQS
+    function searchFAQs() {
+        const searchInput = document
+            .getElementById("faqSearch")
+            .value.toLowerCase()
+            .trim();
+
+        const faqItems = document.querySelectorAll(".faq-item");
+        const noResults = document.getElementById("noResults");
+
+        let visibleCount = 0;
+
+        faqItems.forEach(function(item) {
+            const text = item.textContent.toLowerCase();
+            const matches = text.includes(searchInput);
+
+            item.style.display = matches ? "" : "none";
+
+            if (matches) {
+                visibleCount++;
+            }
+        });
+
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
+    }
+
+    // CURRENT YEAR
+    document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
